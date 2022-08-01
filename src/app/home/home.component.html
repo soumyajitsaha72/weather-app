@@ -1,0 +1,84 @@
+<div class="container-fluid px-1 px-sm-3 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="row card0">
+            <div class="card1 col-lg-8 col-md-7">
+                <small>Weatherz (&copy; {{ currentDate | date:'yyyy' }} soumyajit saha)</small>
+                <div class="text-center">
+                    <img class="image mt-5" src="https://i.imgur.com/M8VyA2h.png">
+                </div>
+                <div class="row px-3 mt-3 mb-3">
+                    <h1 class="large-font mr-3">{{ locationData['main'].temp | number: '1.0-0' }}&#176;</h1>
+                    <div class="d-flex flex-column mr-3">
+                        <h2 class="mt-3 mb-0">{{ locationData['name'] }} ({{ locationData['sys'].country }})</h2>
+                        <small>{{currentDate | date:'medium'}}</small>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <h3 class="fa fa-sun-o mt-4"></h3>
+                        <small>{{ locationData['weather'][0].main }}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card2 col-lg-4 col-md-5">
+                <div class="row px-3">
+                    <input type="text" name="location" placeholder="Search..." class="mb-5">
+                    <div class="fa fa-search mb-5 mr-0 text-center">
+                        <img class="search-icon" src="assets/search-icon.png" alt="search-icon">
+                    </div>
+                </div>
+                <div class="mr-5">
+                    <!-- <p class="light-text suggestion">Birmingham</p>
+                    <p class="light-text suggestion">Manchester</p>
+                    <p class="light-text suggestion">New York</p>
+                    <p class="light-text suggestion">California</p>
+
+                    <div class="line my-5"></div> -->
+
+                    <div class="row px-3">
+                        <p class="light-text">Longitde</p>
+                        <p class="ml-auto">{{ locationData['coord'].lon }}</p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Latitude</p>
+                        <p class="ml-auto">{{ locationData['coord'].lat }}</p>
+                    </div>
+
+                    <p>Weather Details</p>
+                    <div class="row px-3">
+                        <p class="light-text">Cloudy</p>
+                        <p class="ml-auto">{{ locationData['clouds'].all }}%</p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Min-Temp</p>
+                        <p class="ml-auto">{{ locationData['main'].temp_min | number: '1.0-0' }}&#176;c</p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Max-Temp</p>
+                        <p class="ml-auto">{{ locationData['main'].temp_max | number: '1.0-0' }}&#176;c</p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Feels-Like</p>
+                        <p class="ml-auto">{{ locationData['main'].feels_like | number: '1.0-0' }}&#176;c</p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Humidity</p>
+                        <p class="ml-auto">{{ locationData['main'].humidity }}%</p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Pressure</p>
+                        <p class="ml-auto">{{ locationData['main'].pressure }} hPa</p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Wind</p>
+                        <p class="ml-auto">{{ (locationData['wind'].speed)*36/10 | number: '1.0-0' }} km/hr</p>
+                    </div>
+                    <!-- <div class="row px-3">
+                        <p class="light-text">Visibility</p>
+                        <p class="ml-auto">{{ locationData['visibility'] }}</p>
+                    </div> -->
+
+                    <div class="line mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
