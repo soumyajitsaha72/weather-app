@@ -10,6 +10,16 @@ export class HomeComponent implements OnInit {
   locationData = {};
   currentDate = Date.now();
 
+  searchText = "";
+  onSearch(input: string) {
+    this.weatherApiService.getLocationData(input)
+      .subscribe(
+        (res) => {
+          this.locationData = res;
+        }
+      )
+  }
+
   constructor(private weatherApiService: WeatherApiService) { }
 
   ngOnInit() {

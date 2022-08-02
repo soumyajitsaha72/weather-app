@@ -20,7 +20,9 @@
             </div>
             <div class="card2 col-lg-4 col-md-5">
                 <div class="row px-3">
-                    <input type="text" name="location" placeholder="Search..." class="mb-5">
+                    <!-- Search field -->
+                    <input type="text" name="location" placeholder="Search...(eg. Kolkata, India)" class="mb-5"
+                        [(ngModel)]="searchText" (input)="onSearch(searchText)">
                     <div class="fa fa-search mb-5 mr-0 text-center">
                         <img class="search-icon" src="assets/search-icon.png" alt="search-icon">
                     </div>
@@ -34,7 +36,7 @@
                     <div class="line my-5"></div> -->
 
                     <div class="row px-3">
-                        <p class="light-text">Longitde</p>
+                        <p class="light-text">Longitude</p>
                         <p class="ml-auto">{{ locationData['coord'].lon }}</p>
                     </div>
                     <div class="row px-3">
